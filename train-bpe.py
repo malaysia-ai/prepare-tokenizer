@@ -6,17 +6,31 @@ import os
 from glob import glob
 from tqdm import tqdm
 
-files = sorted(glob('dedup-text-dataset/*.jsonl'))
-skip = ['NLLB.jsonl', 'common-crawl.jsonl', 'eprints.jsonl']
-skip = [os.path.join('dedup-text-dataset', f) for f in skip]
-
-code_files = [
-    'code_instructions_120k.jsonl.requested', 
-    'python_evol_instruct_51k.jsonl.requested',
-    'unnatural-instructions.jsonl.requested'
-]
-
 def a():
+
+    files = glob('google-translate-ms-pa/*.requested')
+    files.extend(glob('google-translate-ms-ta/*.requested'))
+
+    for f in files:
+        i = 0
+        with open(f) as fopen:
+            for l in fopen:
+                try:
+                    l = json.loads(l)
+                    yield l['r']['result']
+                    i += 1
+                    if i >= 1e4:
+                        break
+                except Exception as e:
+                    print(f, e)
+                    pass
+
+    code_files = [
+        'code_instructions_120k.jsonl.requested', 
+        'python_evol_instruct_51k.jsonl.requested',
+        'unnatural-instructions.jsonl.requested'
+    ]
+
     for f in tqdm(code_files):
         i = 0
         with open(f) as fopen:
@@ -27,8 +41,13 @@ def a():
 
                 yield l['r']
                 i += 1
-                if i >= 2e4:
+                if i >= 1e4:
                     break
+
+    files = sorted(glob('dedup-text-dataset/*.jsonl'))
+    skip = ['NLLB.jsonl', 'common-crawl.jsonl', 'eprints.jsonl']
+    skip = [os.path.join('dedup-text-dataset', f) for f in skip]
+
     for f in files:
         if f in skip:
             continue
@@ -39,7 +58,7 @@ def a():
                     l = json.loads(l).strip()
                     yield l
                     i += 1
-                    if i >= 3e5:
+                    if i >= 1e4:
                         break
                 except:
                     pass

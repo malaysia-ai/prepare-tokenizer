@@ -2,6 +2,15 @@
 
 Prepare SentencePiece (T5, Llama2) and Byte level (GPT2, RoBERTa) BPE on Malaysian texts (Jawi, Melayu, Manglish, Mandarin, Tamil).
 
+## dataset used
+
+1. https://huggingface.co/datasets/malaysia-ai/dedup-text-dataset
+2. https://huggingface.co/datasets/mesolitica/translated-code-instructions-122k
+3. https://huggingface.co/datasets/mesolitica/translated-unnatural_code_instructions_20M
+4. https://huggingface.co/datasets/mesolitica/translated-python-evol-instruct-51k
+5. https://huggingface.co/datasets/mesolitica/google-translate-ms-pa
+6. https://huggingface.co/datasets/mesolitica/google-translate-ms-ta
+
 ## how-to
 
 ### SentencePiece
