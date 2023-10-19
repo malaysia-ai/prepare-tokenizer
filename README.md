@@ -4,7 +4,7 @@ Prepare SentencePiece (T5, Llama2) and Byte level (GPT2, RoBERTa) BPE on Malaysi
 
 ## how-to
 
-1. SentencePiece,
+### SentencePiece
 
 ```python
 from transformers import AutoTokenizer
@@ -15,7 +15,7 @@ tokenizer.encode('حسين چوميل')
 tokenizer.encode('侯赛因很可爱')
 ```
 
-2. BPE,
+### BPE
 
 ```python
 from transformers import AutoTokenizer
