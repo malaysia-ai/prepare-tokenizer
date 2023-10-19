@@ -1,6 +1,6 @@
 # prepare-tokenizer
 
-Prepare SentencePiece (T5, Llama2) and Byte level (GPT2, RoBERTa) BPE on Malaysian texts (Jawi, Melayu, Manglish, Mandarin, Indian).
+Prepare SentencePiece (T5, Llama2) and Byte level (GPT2, RoBERTa) BPE on Malaysian texts (Jawi, Melayu, Manglish, Mandarin, Tamil).
 
 ## how-to
 
